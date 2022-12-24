@@ -2,7 +2,7 @@ const express = require('express');
 const app = express();
 
 const {PORT} = require('./config/serverConfig')
-const SetupAndStartServer = ()=>{
+const SetupAndStartServer = async()=>{
     app.listen(PORT , ()=>{
         console.log(`server is running fine on ${PORT}`)
     })
