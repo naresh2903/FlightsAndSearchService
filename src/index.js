@@ -4,6 +4,8 @@ const bodyParser = require('body-parser')
 
 const {PORT} = require('./config/serverConfig')
 
+const apiRoutes = require('./routes/index');
+
 
 
 const SetupAndStartServer = async()=>{
@@ -17,6 +19,10 @@ const SetupAndStartServer = async()=>{
     app.use(bodyParser.urlencoded({extended:true}));
 
 
+    // routes
+    app.use('/api', apiRoutes);
+
+
     app.listen(PORT , ()=>{
     console.log(`server is running fine on ${PORT}`)
       
@@ -24,7 +30,6 @@ const SetupAndStartServer = async()=>{
    
     })
 }
-
 
 
 
