@@ -18,8 +18,7 @@ class CityRepository{
             await City.destroy({
                 where :{id:cityId}
             });
-            return true;
-            
+            return true;    
         } catch (error) {
             console.log("something went wrong in the repository layer");
             throw {error}
@@ -32,12 +31,13 @@ class CityRepository{
                 where:{
                     id:cityId
                 }
-            })
+            });
 
             return city;
 
         } catch (error) {
-            
+            console.log("something went wrong in the repository layer");
+            throw {error}
         }
     }
 
