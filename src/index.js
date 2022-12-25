@@ -4,8 +4,7 @@ const bodyParser = require('body-parser')
 
 const {PORT} = require('./config/serverConfig')
 
-// testing repo
-const CityRepository = require("./repository/cityRepo")
+
 
 const SetupAndStartServer = async()=>{
 
@@ -21,9 +20,8 @@ const SetupAndStartServer = async()=>{
     app.listen(PORT , ()=>{
     console.log(`server is running fine on ${PORT}`)
       
-    // demo for using repositories
-    const repo = new  CityRepository();
-      repo.createCity({name:"New Delhi"});
+   
+   
     })
 }
 
