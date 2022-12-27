@@ -1,36 +1,30 @@
-const express = require('express');
+const express = require("express");
+const bodyParser = require("body-parser");
 
-const bodyParser = require('body-parser')
+const { PORT } = require('./config/serverConfig');
+const ApiRoutes = require('./routes/index');
 
-const {PORT} = require('./config/serverConfig')
+const db = require('./models/index');
+const { CityRepository } = require("./repository");
+ const { Airplane} = require('./models/index');
 
-const apiRoutes = require('./routes/index');
+const setupAndStartServer = async () => {
 
-
-
-const SetupAndStartServer = async()=>{
-
-    //create express object
+    // create the express object
     const app = express();
 
-
-    // middlewares
     app.use(bodyParser.json());
-    app.use(bodyParser.urlencoded({extended:true}));
+    app.use(bodyParser.urlencoded({extended: true}));
 
+    app.use('/api', ApiRoutes);
 
-    // routes
-    app.use('/api', apiRoutes);
+    app.listen(PORT, async () => {
+        console.log(`Server started at ${PORT}`);
+        if(process.env.SYNC_DB) {
+            db.sequelize.sync({alter: true});
+        }
 
-
-    app.listen(PORT , ()=>{
-    console.log(`server is running fine on ${PORT}`)
-      
-   
-   
-    })
+    });
 }
 
-
-
-SetupAndStartServer();
+setupAndStartServer();
