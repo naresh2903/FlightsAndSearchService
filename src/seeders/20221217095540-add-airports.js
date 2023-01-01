@@ -13,38 +13,32 @@ module.exports = {
      * }], {});
     */
 
-     await queryInterface.bulkInsert('Airplanes', [
+    await queryInterface.bulkInsert('Airports', [
       {
-         modelNumber: 'Boeing 737',
-         capacity: 300,
-         createdAt: new Date(),
-         updatedAt: new Date()
-       },{
-        modelNumber: 'Airbus A320',
-        capacity: 350,
+        name: 'Kempegowda International Airport',
+        cityId: 4,
         createdAt: new Date(),
         updatedAt: new Date()
-       },{
-        modelNumber: 'Boeing 777',
-        capacity: 400,
+      },
+      {
+        name: 'Mysuru Airport',
+        cityId: 4,
         createdAt: new Date(),
         updatedAt: new Date()
-       },
-       {
-        modelNumber: 'Boeing 747',
-        capacity: 320,
+      },
+      {
+        name: 'Mengaluru International Airport',
+        cityId: 4,
         createdAt: new Date(),
         updatedAt: new Date()
-       },
-       {
-        modelNumber: 'Airbus A330',
-        capacity:200,
+      },
+      {
+        name: 'Indira Gandhi International Airport',
+        cityId: 2,
         createdAt: new Date(),
         updatedAt: new Date()
-        
-       }
-      ], {});
-   
+      }
+    ], {});
   },
 
   async down (queryInterface, Sequelize) {
@@ -54,5 +48,6 @@ module.exports = {
      * Example:
      * await queryInterface.bulkDelete('People', null, {});
      */
+
   }
 };
