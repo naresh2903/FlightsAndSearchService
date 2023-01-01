@@ -48,3 +48,31 @@ npx sequelize model:generate --name Airport --attributes name:String,address:Str
 ```
 
 -  FlightAndSearchService Completed !!!
+
+
+# Git Hub and Git commands
+```
+
+Step 1 : Create branch 
+   git branch “branch name”
+
+Step 2 : Checkout branch
+   git checkout “branch name”
+   git push -u origin "branch name"
+
+Step 3 : Merge new branch in master branch
+   git merge “branch name”
+   git push -u origin master
+
+Step 4 : Delete branch
+   git branch -d “branch name”    — delete from local
+   git push origin —delete “branch name” 
+   
+     — delete from remote
+
+     Or
+
+     git push origin :"branch name to delete"
+
+
+```
